@@ -4,9 +4,9 @@ on:
   release:
     types: [published]
 
-  #push:
-  #  branches: 
-  #    - main
+  push:
+    branches: 
+      - main
 
   #schedule:
   #  - cron: 0 8 * * 5
@@ -65,7 +65,7 @@ jobs:
         ./scripts/feeds install -a
     - name: Configuration Customization - Build_ghl-r-001
       env:
-        CONFIG_FILE: 'ghl-r-005.config'
+        CONFIG_FILE: 'ghl-r-003.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x ./customize.sh && ./customize.sh
