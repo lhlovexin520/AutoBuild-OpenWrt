@@ -65,7 +65,7 @@ jobs:
         ./scripts/feeds install -a
     - name: Configuration Customization - Build_ghl-r-001
       env:
-        CONFIG_FILE: 'ghl-r-005.config'
+        CONFIG_FILE: 'ghl-r-003.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x ./customize.sh && ./customize.sh
