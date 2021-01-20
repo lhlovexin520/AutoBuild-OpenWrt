@@ -4,9 +4,9 @@ on:
   release:
     types: [published]
 
-  #push:
-  #  branches: 
-  #    - main
+  push:
+    branches: 
+      - main
 
   #schedule:
   #  - cron: 0 8 * * 5
@@ -68,7 +68,7 @@ jobs:
       working-directory: ./openwrt
       run: |
         git clone https://github.com/xiaorouji/openwrt-passwall
-        cp -r openwrt-passwall package/lean
+        mv openwrt-passwall package/lean
     #    git clone "your_github_link" package/"your_folder_name"      
 
     - name: Configuration Customization - Build_ghl-r-001
