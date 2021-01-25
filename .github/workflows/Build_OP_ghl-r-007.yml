@@ -57,7 +57,7 @@ jobs:
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
         sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
-        sed -i '12i\src-git Passwall https://github.com/xiaorouji/openwrt-passwall' feeds.conf.default
+        sed -i '12i\src-git Passwall https://github.com/xiaorouji/openwrt-passwall' ./feeds.conf.default
         
     - name: Update & Install feeds
       working-directory: ./openwrt
