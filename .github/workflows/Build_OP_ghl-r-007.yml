@@ -57,6 +57,8 @@ jobs:
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
         sed -i 's/#src-git helloworld/src-git helloworld/g' ./feeds.conf.default
+        sed -i '12i\src-git kenzo https://github.com/kenzok8/openwrt-packages'  feeds.conf.default
+        sed -i '13i\src-git small https://github.com/kenzok8/small' feeds.conf.default
 
         
     - name: Update & Install feeds
@@ -64,14 +66,7 @@ jobs:
       run: |
         ./scripts/feeds update -a
         ./scripts/feeds install -a
-        ./scripts/feeds install -a    
-
-    - name: Import external feeds
-      working-directory: ./openwrt
-      run: |
-        src-git kenzo https://github.com/kenzok8/openwrt-packages
-        src-git small https://github.com/kenzok8/small
-        
+        ./scripts/feeds install -a           
         
     - name: Configuration Customization - Build_ghl-r-001
       env:
