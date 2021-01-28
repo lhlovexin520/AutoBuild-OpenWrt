@@ -4,9 +4,9 @@ on:
   release:
     types: [published]
 
-  push:
-    branches: 
-      - main
+  #push:
+  #  branches: 
+  #    - main
 
   #schedule:
   #  - cron: 0 8 * * 5
@@ -68,7 +68,7 @@ jobs:
     - name: Import external feeds
       working-directory: ./openwrt
       run: |
-        git clone https://github.com/xiaorouji/openwrt-passwall.git
+        git clone https://github.com/xiaorouji/openwrt-passwall.git package/lienol
     #    git clone "your_github_link" package/"your_folder_name" 
         
     - name: Configuration Customization - Build_ghl-r-001
